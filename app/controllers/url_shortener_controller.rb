@@ -1,6 +1,7 @@
-class UrlShortenerController < ApplicationController
+class URLShortenerController < ApplicationController
     def url
-      puts 'url'
+      response = URLHandler.new(params[:url]).url
+      render json: response, status: 200
     end
 
     def find_url

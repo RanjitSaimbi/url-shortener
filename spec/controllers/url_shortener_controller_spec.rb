@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UrlShortenerController, type: :controller do
+RSpec.describe URLShortenerController, type: :controller do
   describe 'POST #url' do
     context 'With a valid url request' do
       let(:request_body) { { 'url': 'http://www.farmdrop.com' } }
