@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple URL shortener app, built using the [Rails](http://rubyonrails.org) framework.
 
-Things you may want to cover:
+## Running Locally
 
-* Ruby version
+Make sure you have [Ruby](https://www.ruby-lang.org) installed.
 
-* System dependencies
+```sh
+git clone the repository or download a fork
+cd url-shortener
+bundle
+bundle exec rails server
+```
 
-* Configuration
+The app should be running on http://localhost:3000.
 
-* Database creation
+You can make a POST request, as follows: 
+```sh
+curl -X POST -d '{"url": "www.farmdrop.com"}' -H "Content-Type: application/json" http://localhost:3000/
+```
+This will return a shortened URL:
+```sh
+{"short_url":"67d7","url":"http://www.farmdrop.com"}
+```
 
-* Database initialization
+You can make a GET request to a shortened url endpoint which will redirect you to the corresponding URL:
+```sh
+curl -X GET  http://localhost:3000/67d7
+```
 
-* How to run the test suite
+## Tests
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Tests can be run as follows:
+```sh
+bundle exec rspec
+```
